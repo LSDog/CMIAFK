@@ -1,0 +1,16 @@
+name: CMIAFK
+main: fun.LSDog.CMIAFK.CMIAFK
+version: 1.0
+api-version: 1.18
+author: LSDog
+depend: [CMILib, CMI, MMOItems, PlaceholderAPI]
+
+commands:
+  cmiafk:
+    aliases: [cafk]
+    permission: CMIAFK.admin
+
+permissions:
+  CMIAFK.admin:
+    default: op
+    description: "Permission for CMIAFK's operator"
