@@ -33,7 +33,7 @@ public class AFKTimer {
                     }
                 });
             }
-        }.runTaskTimerAsynchronously(CMIAFK.instant, 0, DURING);
+        }.runTaskTimerAsynchronously(CMIAFK.instance, 0, DURING);
     }
 
     public static void stopTimer() {

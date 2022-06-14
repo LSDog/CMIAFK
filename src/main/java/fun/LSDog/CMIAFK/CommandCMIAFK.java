@@ -18,7 +18,7 @@ public class CommandCMIAFK implements TabExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(CMIAFK.config.prefix + "§8v" + CMIAFK.instant.getDescription().getVersion() + "§r\n" +
+            sender.sendMessage(CMIAFK.config.prefix + "§8v" + CMIAFK.instance.getDescription().getVersion() + "§r\n" +
                     (sender.hasPermission("CMIAFK.admin") ?
                             "§b/cafk§r§3 list§l §r§7- 列出afk中的玩家\n" +
                             "§b/cafk§r§3 reload§l §r§7- 重载配置和插件, afk中的玩家会重新开始计算\n":"")
@@ -54,7 +54,7 @@ public class CommandCMIAFK implements TabExecutor {
                             sb.append("§7==== AFK player list ====§r\n");
                             sender.sendMessage(sb.toString());
                         }
-                    }.runTaskAsynchronously(CMIAFK.instant);
+                    }.runTaskAsynchronously(CMIAFK.instance);
                     break;
                 case "reload":
                     CMIAFK.reload();

@@ -12,8 +12,8 @@ import java.util.*;
 
 public class CMIAFK extends JavaPlugin {
 
-    public CMIAFK() { instant = this;}
-    public static CMIAFK instant;
+    public CMIAFK() { instance = this;}
+    public static CMIAFK instance;
 
     public static class config {
         public static String prefix = "§3§lCMIAFK >>§r ";
@@ -77,14 +77,14 @@ public class CMIAFK extends JavaPlugin {
         List<Player> afkingPlayerList = new ArrayList<>();
         afkPlayers.forEach(afkPlayer -> afkingPlayerList.add(afkPlayer.getPlayer()));
         AFKPlayer.clearAll();
-        instant.reloadConfig();
-        instant.loadFromConfig();
+        instance.reloadConfig();
+        instance.loadFromConfig();
         afkingPlayerList.forEach(player -> new AFKPlayer(player).startAFK());
     }
 
     public static void loadAFKInfos() {
         LinkedHashMap<String, AFKInfo> afkInfoMap = new LinkedHashMap<>();
-        Objects.requireNonNull(instant.getConfig().getConfigurationSection("afk")).getValues(false).forEach(
+        Objects.requireNonNull(instance.getConfig().getConfigurationSection("afk")).getValues(false).forEach(
                 (key, object) -> {
                     if (object instanceof ConfigurationSection) {
                         ConfigurationSection section = (ConfigurationSection) object;

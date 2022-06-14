@@ -67,18 +67,18 @@ public class AFKInfo {
         if (part.length < 2) return;
         switch (part[0].toLowerCase()) {
             case "console":
-                Bukkit.getScheduler().callSyncMethod(CMIAFK.instant, () ->
+                Bukkit.getScheduler().callSyncMethod(CMIAFK.instance, () ->
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), part[1]));
                 break;
             case "player":
-                Bukkit.getScheduler().callSyncMethod(CMIAFK.instant, () ->
+                Bukkit.getScheduler().callSyncMethod(CMIAFK.instance, () ->
                         player.performCommand(part[1]));
                 break;
             case "op":
                 boolean hasOP = player.isOp();
                 try {
                     if (!hasOP) player.setOp(true);
-                    Bukkit.getScheduler().callSyncMethod(CMIAFK.instant, () ->
+                    Bukkit.getScheduler().callSyncMethod(CMIAFK.instance, () ->
                             Bukkit.dispatchCommand(player, part[1]));
                 } catch (Exception e) {
                     e.printStackTrace();
